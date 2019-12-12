@@ -6,8 +6,9 @@ import { SelectClassesComponent } from './select-classes/select-classes.componen
 
 
 const routes: Routes = [
+  { path: '', component: ProfessorsPageComponent},
   { path: 'login', component: LoginPageComponent},
-  { path: 'index', component: ProfessorsPageComponent},
+  { path: 'teachers', component: ProfessorsPageComponent},
   { path: 'classes/:id', component: SelectClassesComponent}
 ];
 

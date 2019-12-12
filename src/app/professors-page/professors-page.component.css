@@ -16,7 +16,7 @@
 
 .background {
     height: calc(100% - 56px);
-    background-image: url('https://boh.com');
+    background-color: #73e8ff;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

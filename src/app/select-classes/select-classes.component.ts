@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TeachersProvider } from 'src/providers/teachers-provider';
+import { StudentsProvider } from 'src/providers/students-provider';
 
 @Component({
   selector: 'app-select-classes',
@@ -10,14 +12,17 @@ export class SelectClassesComponent implements OnInit {
 
   private professorId : string;
   private firstTimeShow : boolean = false;
-  public classes : string[] = ['4M','5M','6M'];
-  public students : any[];
-  public displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  public classes;
+  public students;
+  public displayedColumns: string[] = ['name', 'class_name', 'sex'];
 
-  constructor(private _route: ActivatedRoute) {
+  constructor(private _route: ActivatedRoute, private teachersProvider: TeachersProvider, private studentsProvider: StudentsProvider) {
       this.professorId = this._route.snapshot.paramMap.get('id');
       console.log(this.professorId);
-      // this.getClasses();
+      this.teachersProvider.getTeacherClasses(this.professorId).subscribe(res => {
+        this.classes = res;
+        console.log(this.classes);
+      })
    }
 
   ngOnInit() {
@@ -28,23 +33,13 @@ export class SelectClassesComponent implements OnInit {
     this.classes = undefined;
   }
 
-  showStudents(value){
+  showStudents(value:any){
     this.firstTimeShow = true;
     console.log(value);
-    // TO DO CARICO STUDENTI
-    this.students = [
-      {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-      {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-      {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-      {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-      {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-      {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-      {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-      {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-      {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-      {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-    ];
-    console.log(this.students);
+    this.studentsProvider.getStudents(value.section,value.class).subscribe(res => {
+      this.students = res;
+      console.log(this.students);
+    })
   }
 
 }

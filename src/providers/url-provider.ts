@@ -1,1 +1,1 @@
-export const URL_BACKEND = 'https://athletic-day-server.herokuapp.com';
+export const URL_BACKEND = 'http://80.211.96.91:3000';

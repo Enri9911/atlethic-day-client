@@ -14,4 +14,8 @@ export class TeachersProvider {
         return this.httpClient.get(this.url + '/teachers');
     }
 
+    public getTeacherClasses(id){
+        return this.httpClient.get(this.url + '/classes?teacherId=' + id)
+    }
+
 }

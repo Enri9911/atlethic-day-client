@@ -16,6 +16,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TeachersProvider } from 'src/providers/teachers-provider';
 import { SelectClassesComponent } from './select-classes/select-classes.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { StudentsProvider } from 'src/providers/students-provider';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   providers: [
     LoginProvider,
     TeachersProvider,
+    StudentsProvider,
     HttpClient,
     HttpClientModule
   ],

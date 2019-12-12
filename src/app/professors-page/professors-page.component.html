@@ -15,7 +15,7 @@
                                 <p>{{teacher.surname}}</p>
                             </mat-card-content>
                             <mat-card-actions>
-                                <button mat-raised-button class="full-width" color="primary">Test</button>
+                                <button (click)="goToClasses(teacher.id)" mat-raised-button class="full-width" color="primary">Test</button>
                             </mat-card-actions>
                         </div>
                     </div>

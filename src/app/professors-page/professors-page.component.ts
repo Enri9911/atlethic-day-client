@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeachersProvider } from 'src/providers/teachers-provider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-professors-page',
@@ -10,7 +11,7 @@ export class ProfessorsPageComponent implements OnInit {
 
   private teachers;
 
-  constructor(private teachersProvider: TeachersProvider) { 
+  constructor(private teachersProvider: TeachersProvider, private router: Router) { 
     this.teachersProvider.getTeachers().subscribe(res => {
       this.teachers = res;
     })
@@ -18,6 +19,10 @@ export class ProfessorsPageComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  goToClasses(id){
+    this.router.navigate(['/classes',id])
   }
 
 }
