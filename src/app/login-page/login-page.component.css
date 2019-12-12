@@ -1,0 +1,27 @@
+.full-width{
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+}
+
+.row{
+    margin-top: 50px;
+}
+
+.header { 
+    text-align: center;
+}
+
+mat-card{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.background {
+    height: calc(100% - 56px);
+    background-image: url('../../resources/forest.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
