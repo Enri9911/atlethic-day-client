@@ -11,6 +11,8 @@ table {
 }
 
 .background {
-    height: calc(100% - 56px);
+    z-index: 5;
+    height: auto;
+    min-height: calc(100% - 56px);
     background-color: #81D4FA;
 }

@@ -1,0 +1,40 @@
+<div class="background">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-select style="width: 100%;">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let race of races" [value]="race">
+                    {{ race.specialityDescription }}
+                </mat-option>
+            </mat-select>
+        </div>
+    </div>
+</div>
+<div class="container" style="margin-top: 30px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="podium">
+                <div class="top">
+                    <mat-card style="background: none;">
+                        <img mat-card-avatar class="avatarImage">
+                    </mat-card>
+                </div>
+                    <div class="left">
+                        <mat-card style="background: none;">
+                            <img mat-card-avatar class="avatarImage">
+                        </mat-card>
+                    </div>
+                    <div class="right">
+                        <mat-card style="background: none;">
+                            <img mat-card-avatar class="avatarImage">
+                        </mat-card>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="trophy">
+    
+</div>

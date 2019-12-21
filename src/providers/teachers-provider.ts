@@ -11,11 +11,11 @@ export class TeachersProvider {
     }
 
     public getTeachers() {
-        return this.httpClient.get(this.url + '/teachers');
+        return this.httpClient.get(this.url + '/teacher');
     }
 
     public getTeacherClasses(id){
-        return this.httpClient.get(this.url + '/classes?teacherId=' + id)
+        return this.httpClient.get(this.url + '/class/'+id)
     }
 
 }

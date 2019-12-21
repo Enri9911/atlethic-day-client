@@ -11,7 +11,11 @@ export class StudentsProvider {
     }
 
     getStudents(sectionField,classField ){
-        return this.httpClient.get(this.url + '/students?class='+ classField + '&section=' + sectionField)
+        return this.httpClient.get(this.url + '/student/' + classField + '' + sectionField)
+    }
+
+    registerRaceForStudent(user,race){
+        // return this.httpClient.post('')
     }
     
 

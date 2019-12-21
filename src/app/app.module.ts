@@ -17,6 +17,8 @@ import { TeachersProvider } from 'src/providers/teachers-provider';
 import { SelectClassesComponent } from './select-classes/select-classes.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StudentsProvider } from 'src/providers/students-provider';
+import { RacesProvider } from 'src/providers/races-provider';
+import { RecordPageComponent } from './record-page/record-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { StudentsProvider } from 'src/providers/students-provider';
     LoginPageComponent,
     ProfessorsPageComponent,
     SelectClassesComponent,
-    NavbarComponent
+    NavbarComponent,
+    RecordPageComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { StudentsProvider } from 'src/providers/students-provider';
   ],
   providers: [
     LoginProvider,
+    RacesProvider,
     TeachersProvider,
     StudentsProvider,
     HttpClient,

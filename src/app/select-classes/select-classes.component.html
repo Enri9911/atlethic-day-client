@@ -1,16 +1,19 @@
 <div class="background">
-    <div class="container card2">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <mat-form-field class="ca80">
+            <div class="col-md-6">
+                <mat-form-field style="width:100%;" class="ca80">
                     <mat-label>Classe : </mat-label>
-                    <mat-select>
+                    <mat-select style="width: 100%;">
                         <mat-option>--</mat-option>
                         <mat-option *ngFor="let class of classes" [value]="class" (click)="showStudents(class)">
                             {{class.class}}{{class.section}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <button mat-button (click)="boh()" style="background-color: green; color: white;">Salva Modifiche</button>
             </div>
         </div>
 
@@ -30,11 +33,30 @@
                         <td mat-cell *matCellDef="let element"> {{element.class_name}} </td>
                     </ng-container>
 
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef> Gara </th>
+                        <td mat-cell *matCellDef="let element">  
+                        <mat-select>
+                            <mat-option>--</mat-option>
+                            <div *ngIf="element.sex === 'M'">
+                                <mat-option *ngFor="let race of racesM" [value]="race.specialityTipe" (click)="updateStudent()"> {{race.specialityTipe}}</mat-option>
+                            </div>
+                            <div *ngIf="element.sex === 'F'">
+                                <mat-option *ngFor="let race of racesF" [value]="race.specialityTipe" (click)="updateStudent()"> {{race.specialityTipe}}</mat-option>
+                            </div>
+                        </mat-select> 
+                    </td>
+                    </ng-container>
+
+                   
+
                     <!-- Symbol Column -->
                     <ng-container matColumnDef="sex">
                         <th mat-header-cell *matHeaderCellDef> Sesso </th>
                         <td mat-cell *matCellDef="let element"> {{element.sex}} </td>
                     </ng-container>
+
+                    
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

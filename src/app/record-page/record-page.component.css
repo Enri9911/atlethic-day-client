@@ -1,0 +1,53 @@
+.container{
+    background-color: #FAFAFA;
+    z-index: 5000;
+    padding: 25px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.podium {
+    text-align: center;
+  }
+  .podium div {
+    width: 180px;
+    height: 220px;
+  }
+  .top {
+    background: yellow;
+    margin:auto
+  }
+  .left {
+    background: orange;
+    display: inline-block; 
+  }
+  .right {
+    background: red;  
+    display: inline-block;  
+}
+
+.avatarImage { 
+    width: 120px;
+    height: 120px;
+    background-image: url('../../resources/avatar.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.background {
+    z-index: 5;
+    height: auto;
+    min-height: calc(100% - 56px);
+    background-color: #b0ff57;
+}
+
+.trophy{
+    z-index: 6px;
+    width: 400px;
+    height: 400px;
+    background-image: url('./images/kisspng-trophy-icon-vector-trophy-5a96bf3917dfd8.8305215915198287930978.png');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 20;
+    left: 5;
+}
