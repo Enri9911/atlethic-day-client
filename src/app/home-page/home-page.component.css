@@ -1,0 +1,40 @@
+.full-width{
+    width: 100%;
+}
+
+.fixed-height-navbar {
+    height: 56px;
+}
+
+.fix-height {
+    height: 400px;
+}
+
+.background {
+    height: calc(100% - 56px);
+    background-color: #73e8ff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#prof{
+    background-image: url('./images/prof.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#record{
+    background-image: url('./images/record.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#news{
+    background-image: url('./images/news.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

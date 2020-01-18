@@ -20,7 +20,7 @@ mat-card{
 
 .background {
     height: calc(100% - 56px);
-    background-image: url('../../resources/forest.jpg');
+    background-image: url('../../resources/forest.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

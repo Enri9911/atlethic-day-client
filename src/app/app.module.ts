@@ -19,6 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { StudentsProvider } from 'src/providers/students-provider';
 import { RacesProvider } from 'src/providers/races-provider';
 import { RecordPageComponent } from './record-page/record-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RecordPageComponent } from './record-page/record-page.component';
     ProfessorsPageComponent,
     SelectClassesComponent,
     NavbarComponent,
-    RecordPageComponent
+    RecordPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

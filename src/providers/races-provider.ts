@@ -9,7 +9,7 @@ export class RacesProvider{
     }
 
     getRaces(classField,sex){
-        var queryString = '/race/';
+        var queryString = '/races/';
         if(classField>2){
             queryString = queryString + 't'
         } else {
@@ -23,7 +23,20 @@ export class RacesProvider{
     }
 
     getAllRaces(){
-        return this.httpClient.get(URL_BACKEND+'/race');
+        return this.httpClient.get(URL_BACKEND+'/races');
+    }
+
+    newRaceInscription(object){
+        return this.httpClient.post(URL_BACKEND+'/inscriptions',object);
+    }
+
+    raceInscription(object){
+        return this.httpClient.put(URL_BACKEND+'/inscriptions',object);
+    }
+
+    deleteRaceInscription(object){
+        console.log(object);
+        return this.httpClient.delete(URL_BACKEND+'/inscriptions/' + object.studentId + '/' + object.raceId);
     }
 
 }

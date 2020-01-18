@@ -34,20 +34,13 @@
 }
 
 .background {
-    z-index: 5;
-    height: auto;
-    min-height: calc(100% - 56px);
-    background-color: #b0ff57;
+  height: calc(100% - 56px);
+  background-image: url('../../resources/forest.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.trophy{
-    z-index: 6px;
-    width: 400px;
-    height: 400px;
-    background-image: url('./images/kisspng-trophy-icon-vector-trophy-5a96bf3917dfd8.8305215915198287930978.png');
-    background-size: cover;
-    background-position: center;
-    position: fixed;
-    top: 20;
-    left: 5;
+.trophy {
+  background-image: url('../../resources/trophy.png');
 }
