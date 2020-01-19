@@ -20,6 +20,7 @@ import { StudentsProvider } from 'src/providers/students-provider';
 import { RacesProvider } from 'src/providers/races-provider';
 import { RecordPageComponent } from './record-page/record-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     HomePageComponent
   ],
   imports: [
+    BrowserAnimationsModule, 
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -47,7 +49,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     MatSelectModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     LoginProvider,
