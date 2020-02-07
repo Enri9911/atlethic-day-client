@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ProfessorsPageComponent implements OnInit {
 
-  private teachers;
+  public teachers;
 
   constructor(private teachersProvider: TeachersProvider, private router: Router) { 
     this.teachersProvider.getTeachers().subscribe(res => {

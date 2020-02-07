@@ -13,7 +13,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class SelectClassesComponent implements OnInit {
 
   private professorId : string;
-  private firstTimeShow : boolean = false;
+  public firstTimeShow : boolean = false;
   public classes;
   public students;
   public racesM;
