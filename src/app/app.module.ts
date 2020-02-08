@@ -8,7 +8,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatCardAvatar, MatOptionModule, MatSelectModule
+  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatCardAvatar, MatOptionModule, MatSelectModule, MatTabsModule
 } from '@angular/material';
 import { ProfessorsPageComponent } from './professors-page/professors-page.component';
 import { LoginProvider } from 'src/providers/login-provider';
@@ -21,16 +21,20 @@ import { RacesProvider } from 'src/providers/races-provider';
 import { RecordPageComponent } from './record-page/record-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
+import { PrivateAreaComponent } from './private-area/private-area.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     ProfessorsPageComponent,
+    PrivateAreaComponent,
     SelectClassesComponent,
     NavbarComponent,
     RecordPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    PrivateAreaComponent
   ],
   imports: [
     BrowserAnimationsModule, 
@@ -47,10 +51,20 @@ import { FormsModule } from '@angular/forms';
     MatSidenavModule,
     MatOptionModule,
     MatSelectModule,
+    MatTabsModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   ],
   providers: [
     LoginProvider,

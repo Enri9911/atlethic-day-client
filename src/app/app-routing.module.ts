@@ -5,6 +5,7 @@ import { ProfessorsPageComponent } from './professors-page/professors-page.compo
 import { SelectClassesComponent } from './select-classes/select-classes.component';
 import { RecordPageComponent } from './record-page/record-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PrivateAreaComponent } from './private-area/private-area.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
   { path: 'teachers', component: ProfessorsPageComponent},
   { path: 'classes/:id', component: SelectClassesComponent},
-  { path: 'record', component: RecordPageComponent}
+  { path: 'record', component: RecordPageComponent},
+  { path: 'reserved-area', component: PrivateAreaComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row" style="text-align: center;">
+        <mat-tab-group>
+            <mat-tab label="Statistiche">
+                <div class="tabContainer">
+                    <h1>STATISTICHE</h1>
+                    <div class="col-md-6">
+                        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+                    </div>
+                    <div class="col-md-6">
+                        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Registrazione">
+                <div class="tabContainer">
+                    <h1>AGGIUNGI PROFESSORE</h1>
+                    <div class="form">
+                        <div class="col-md-12">
+                            <mat-form-field style="width: 40%;" class="example-full-width">
+                                <mat-label>Nome</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-12">
+                            <mat-form-field style="width: 40%;" class="example-full-width">
+                                <mat-label>Cognome</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-12">
+                            <button mat-button class="btn btn-primary" style="width: 40%;">Registra</button>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="PDF">
+                <div style="text-align: center;" class="tabContainer">
+                    <table style="width: 70%; margin: 0px auto;" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+                        <!-- Icon Column -->
+                        <ng-container matColumnDef="icon">
+                            <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <b>PDF</b> </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{element.icon}}
+                            </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <b>Nome documento</b> </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{element.name}}
+                            </td>
+                        </ng-container>
+
+                        <!-- Download Column -->
+                        <ng-container matColumnDef="download">
+                            <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <b>Download</b> </th>
+                            <td mat-cell *matCellDef="let element">
+                                <button style="margin: 5px;" class="btn btn-primary">
+                                <i class="material-icons">
+                                    cloud_download
+                                    </i>
+                            </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

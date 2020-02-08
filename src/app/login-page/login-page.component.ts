@@ -21,8 +21,7 @@ export class LoginPageComponent implements OnInit {
     console.log(this.username);
     console.log(this.password);
     if(this.loginProvider.login(this.username, this.password)){
-      alert("PORCO DIO SONO LOGGATOOOOOOOO");
-      this.router.navigate(['/teachers']);
+      this.router.navigate(['/reserved-area']);
     }
   }
 }
