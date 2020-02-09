@@ -8,7 +8,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatCardAvatar, MatOptionModule, MatSelectModule, MatTabsModule
+  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatCardAvatar, MatOptionModule, MatSelectModule, MatTabsModule, MatExpansionModule
 } from '@angular/material';
 import { ProfessorsPageComponent } from './professors-page/professors-page.component';
 import { LoginProvider } from 'src/providers/login-provider';
@@ -40,6 +40,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     BrowserAnimationsModule, 
     BrowserModule,
     AppRoutingModule,
+    MatExpansionModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
@@ -58,12 +59,21 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     FormsModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300
+      backgroundStrokeWidth: 29,
+      radius: 71,
+      space: 0,
+      maxPercent: 100,
+      outerStrokeWidth: 10,
+      outerStrokeColor: "#0b17b5",
+      outerStrokeLinecap: "square",
+      innerStrokeColor: "#80d2fb",
+      innerStrokeWidth: 7,
+      imageHeight: 77,
+      imageWidth: 48,
+      showSubtitle: false,
+      showUnits: false,
+      showBackground: false,
+      title: "Iscritti",
     })
   ],
   providers: [

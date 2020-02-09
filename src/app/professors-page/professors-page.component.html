@@ -1,21 +1,18 @@
-<div class="background">
+<div class="background" style="padding: 50px;">
     <div class="container">
         <div class="row">
-            <div class="col-md-4" style="margin-top: 50px;"  *ngFor="let teacher of teachers">
+            <div class="col-md-4" *ngFor="let teacher of teachers">
                 <mat-card>
                     <div class="row">
                         <div class="col-md-12" style="text-align: center">
                             <img mat-card-avatar class="avatarImage">
                         </div>
                         <div class="col-md-12">
-                            <mat-card-header style="text-align: center">
-                                <mat-card-title>{{ teacher.name }}</mat-card-title>
+                            <mat-card-header style="display: inline; padding: 25px;     text-align: center">
+                                <mat-card-title>{{ teacher.name }} {{teacher.surname}}</mat-card-title>
                             </mat-card-header>
-                            <mat-card-content>
-                                <p>{{teacher.surname}}</p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button (click)="goToClasses(teacher.id)" mat-raised-button class="full-width" color="primary">Test</button>
+                            <mat-card-actions style="margin-bottom: 0px;">
+                                <button style="height: 40px;" (click)="goToClasses(teacher.id)" mat-raised-button class="full-width" color="primary">Classi</button>
                             </mat-card-actions>
                         </div>
                     </div>

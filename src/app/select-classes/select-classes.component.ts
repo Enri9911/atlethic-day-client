@@ -19,6 +19,15 @@ export class SelectClassesComponent implements OnInit {
   public racesM;
   public racesF;
   public displayedColumns: string[] = ['name',  'select'];
+  public stats = {
+    totalM : 0,
+    totalInscriptionM : 0,
+    totalF : 0,
+    totalInscriptionF : 0,
+    total : 0,
+    totalInscription: 0,
+    percent: 0
+  }
 
   constructor(
     private _route: ActivatedRoute, 
@@ -44,12 +53,14 @@ export class SelectClassesComponent implements OnInit {
   showStudents(value:any){
     this.firstTimeShow = true;
     console.log(value);
+    
+   
     this.studentsProvider.getStudents(value.section,value.class).subscribe(res => {
       this.students = res;
       console.log(this.students);
+
       this.racesProvider.getRaces(value.class,'m').subscribe(res => {
         this.racesM = res;
-        console.log(this.racesM);
         for(let studentIdx in this.students){
           if(this.students[studentIdx].sex === 'M'){
             for(let raceIdx in this.racesM){
@@ -58,22 +69,37 @@ export class SelectClassesComponent implements OnInit {
             }
           }
         }
-        console.log(this.students);
-      })
-      this.racesProvider.getRaces(value.class,'f').subscribe(res => {
-        this.racesF = res;
-        console.log(this.racesF);
-        for(let studentIdx in this.students){
-          if(this.students[studentIdx].sex === 'F'){
-            for(let raceIdx in this.racesF){
-              if(this.students[studentIdx].id_race === this.racesF[raceIdx].id)
-                this.students[studentIdx].raceDescription = this.racesF[raceIdx].specialityTipe;
+        this.racesProvider.getRaces(value.class,'f').subscribe(res => {
+          console.info(res);
+          this.racesF = res;
+          for(let studentIdx in this.students){
+            if(this.students[studentIdx].sex === 'F'){
+              for(let raceIdx in this.racesF){
+                if(this.students[studentIdx].id_race === this.racesF[raceIdx].id)
+                  this.students[studentIdx].raceDescription = this.racesF[raceIdx].specialityTipe;
+              }
             }
           }
-        }
-        console.log(this.students);
-      })
+          this.calculateStats();
+        }) 
+      }) 
     })
+  }
+
+  setRacesInscription(array){
+    for(let race of array){
+      race.inscription = 0;
+      for(let student of this.students){
+        if(student.sex === 'M' && student.id_race === race.id){
+          race.inscription = race.inscription + 1;
+          console.info(race);
+        } else if (student.sex === 'F' && student.id_race === race.id){
+          race.inscription = race.inscription + 1;
+          console.info(race);
+        }
+      }
+    }
+    
   }
 
   updateStudentInscription(user,race){
@@ -89,6 +115,8 @@ export class SelectClassesComponent implements OnInit {
         console.log("MODIFICA");
         user.id_race = objectInscription.raceId_new;
         console.log(user);
+        race.inscription = race.inscription + 1;
+        this.calculateStats();
       })
     } else {
       var objectInscriptionNew = {
@@ -99,6 +127,8 @@ export class SelectClassesComponent implements OnInit {
         console.log("NUOVO");
         user.id_race = objectInscriptionNew.raceId;
         console.log(user);
+        race.inscription = race.inscription + 1;
+        this.calculateStats();
       })
     }
     
@@ -114,6 +144,39 @@ export class SelectClassesComponent implements OnInit {
       console.log("CANCELLO");
       console.log(res);
     })
+  }
+
+  calculateStats(){
+    var total = 0;
+    var totalM = 0;
+    var totalInscriptionM = 0;
+    var totalInscriptionF = 0;
+    var totalF = 0;
+    for(let idx in this.students){
+      if(this.students[idx].sex === 'M'){
+        totalM = totalM + 1;
+      } else {
+        totalF = totalF + 1;
+      }
+      if(this.students[idx].id_race){
+        total = total + 1;
+        if(this.students[idx].sex === 'M'){
+          totalInscriptionM = totalInscriptionM + 1;
+        } else {
+          totalInscriptionF = totalInscriptionF + 1;
+        }
+      }
+    }
+    this.setRacesInscription(this.racesM);
+    this.setRacesInscription(this.racesF);
+    this.stats.totalInscriptionM = totalInscriptionM;
+    this.stats.totalInscriptionF = totalInscriptionF;
+    this.stats.totalM = totalM;
+    this.stats.totalF = totalF;
+    this.stats.totalInscription = total;
+    this.stats.total = this.students.length;
+    this.stats.percent = (this.stats.totalInscription / this.stats.total ) * 100;
+    console.log(this.racesM)
   }
 
 }

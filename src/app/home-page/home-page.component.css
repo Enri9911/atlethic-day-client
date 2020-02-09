@@ -1,4 +1,4 @@
-.full-width{
+.full-width {
     width: 100%;
 }
 
@@ -7,32 +7,37 @@
 }
 
 .fix-height {
-    height: 400px;
+    height: 200px;
+}
+
+button {
+    height: 40px;
 }
 
 .background {
-    height: calc(100% - 56px);
+    height: auto;
+    min-height: calc(100% - 56px);
     background-color: #73e8ff;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#prof{
-    background-image: url('./images/prof.jpg');
+#prof {
+    background-image: url('/src/resources/prof.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#record{
-    background-image: url('./images/record.jpg');
+#record {
+    background-image: url('/src/resources/podio.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#news{
+#news {
     background-image: url('./images/news.png');
     background-position: center;
     background-repeat: no-repeat;
