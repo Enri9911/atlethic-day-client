@@ -4,6 +4,7 @@
     background-image: url('../../resources/avatar2.png');
     background-size: cover;
     background-position: center;
+    border: none;
 }
 
 .full-width {

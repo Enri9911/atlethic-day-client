@@ -8,7 +8,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatCardAvatar, MatOptionModule, MatSelectModule, MatTabsModule, MatExpansionModule
+  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatCardAvatar, MatOptionModule, MatSelectModule, MatTabsModule, MatExpansionModule, MatListModule
 } from '@angular/material';
 import { ProfessorsPageComponent } from './professors-page/professors-page.component';
 import { LoginProvider } from 'src/providers/login-provider';
@@ -53,6 +53,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatOptionModule,
     MatSelectModule,
     MatTabsModule,
+    MatListModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     HttpClientModule,

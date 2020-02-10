@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TeachersProvider } from 'src/providers/teachers-provider';
+import { RacesProvider } from 'src/providers/races-provider';
 
 @Component({
   selector: 'app-private-area',
@@ -7,29 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivateAreaComponent implements OnInit {
 
-  public displayedColumns: string[] = ['name', 'download'];
-  dataSource = [
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'},
-    {icon: true, name:'PROVA BESTIA', download:'LINKDOWNLOAD'}
-  ];
+  public displayedColumns: string[] = ['name','modify','delete'];
+  public teachers;
+  public races;
+  public raceSelected;
+  public searchValue = '';
 
-  constructor() { }
+  constructor(private teachersProvider: TeachersProvider, private racesProvider: RacesProvider) { }
 
   ngOnInit() {
+    this.teachersProvider.getTeachers().subscribe(res => {
+      console.log(res);
+      this.teachers = res;
+    })
+    this.racesProvider.getAllRaces().subscribe(res => {
+      console.log(res);
+      this.races = res;
+    })
+  }
+
+  selectRace(race){
+    //TODO CHIAMATA PER SCARICARE;
+    this.raceSelected = 'PROVA';
   }
 
 }

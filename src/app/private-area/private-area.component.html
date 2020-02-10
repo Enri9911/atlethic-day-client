@@ -1,76 +1,149 @@
-<div class="container">
-    <div class="row" style="text-align: center;">
-        <mat-tab-group>
-            <mat-tab label="Statistiche">
-                <div class="tabContainer">
-                    <h1>STATISTICHE</h1>
-                    <div class="col-md-6">
-                        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+<div class="background">
+    <div class="container" style="background-color: #e2f1f8">
+        <div class="row" style="text-align: center;">
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Elenco professori
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        elenco professori
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <table mat-table [dataSource]="teachers" class="mat-elevation-z8">
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} {{element.surname }} </td>
+                    </ng-container>
+
+                    <!-- Delete Column -->
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef> Cancella </th>
+                        <td mat-cell *matCellDef="let element"><button mat-icon-button>
+                                <mat-icon aria-hidden="false" aria-label="Delete Icon">delete</mat-icon>
+                            </button></td>
+                    </ng-container>
+
+                    <!-- Modify Column -->
+                    <ng-container matColumnDef="modify">
+                        <th mat-header-cell *matHeaderCellDef> Modifica </th>
+                        <td mat-cell *matCellDef="let element"><button mat-icon-button>
+                                <mat-icon aria-hidden="false" aria-label="Modify Icon">view_list</mat-icon>
+                            </button></td>
+                    </ng-container>
+
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Aggiungi Professore
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            crea un nuovo profilo per professore
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-md-6" style="text-align: center">
+                            <div class="col-md-12">
+                                <img mat-card-avatar class="avatarImage">
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div class="col-md-6">
+                            <div class="col-md-12 col-xs-12">
+                                <mat-form-field>
+                                    <mat-label>Nome</mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <mat-form-field>
+                                    <mat-label>Cognome</mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12" style="text-align: right">
+                            <button color="primary" style="width: 100px; height: 40px;" mat-raised-button>Crea</button>
+                        </div>
                     </div>
-                </div>
-            </mat-tab>
-            <mat-tab label="Registrazione">
-                <div class="tabContainer">
-                    <h1>AGGIUNGI PROFESSORE</h1>
-                    <div class="form">
+                </mat-expansion-panel>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Download PDF
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        risultati gare
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-md-7">
                         <div class="col-md-12">
-                            <mat-form-field style="width: 40%;" class="example-full-width">
-                                <mat-label>Nome</mat-label>
-                                <input matInput>
+                            <mat-form-field>
+                                <mat-label>Selezione gara</mat-label>
+                                <mat-select>
+                                    <mat-option *ngFor="let race of races" [value]="race" (click)="selectRace(race)">
+                                        {{race.specialityDescription}}
+                                    </mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </div>
-                        <div class="col-md-12">
-                            <mat-form-field style="width: 40%;" class="example-full-width">
-                                <mat-label>Cognome</mat-label>
-                                <input matInput>
-                            </mat-form-field>
-                        </div>
-                        <div class="col-md-12">
-                            <button mat-button class="btn btn-primary" style="width: 40%;">Registra</button>
-                        </div>
                     </div>
-                </div>
-            </mat-tab>
-            <mat-tab label="PDF">
-                <div style="text-align: center;" class="tabContainer">
-                    <table style="width: 70%; margin: 0px auto;" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-                        <!-- Icon Column -->
-                        <ng-container matColumnDef="icon">
-                            <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <b>PDF</b> </th>
-                            <td mat-cell *matCellDef="let element">
-                                {{element.icon}}
-                            </td>
-                        </ng-container>
-
-                        <!-- Name Column -->
-                        <ng-container matColumnDef="name">
-                            <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <b>Nome documento</b> </th>
-                            <td mat-cell *matCellDef="let element">
-                                {{element.name}}
-                            </td>
-                        </ng-container>
-
-                        <!-- Download Column -->
-                        <ng-container matColumnDef="download">
-                            <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <b>Download</b> </th>
-                            <td mat-cell *matCellDef="let element">
-                                <button style="margin: 5px;" class="btn btn-primary">
-                                <i class="material-icons">
-                                    cloud_download
-                                    </i>
+                    <mat-divider></mat-divider>
+                    <div class="col-md-5">
+                        <div class="col-md-12" style="text-align: center;" *ngIf="raceSelected">
+                            <button color="primary" style="width: 70%; height: 50px;" mat-raised-button>
+                                <mat-icon aria-hidden="false" aria-label="Login Icon">cloud_download</mat-icon>
                             </button>
-                            </td>
-                        </ng-container>
-
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
+                        </div>
+                    </div>
                 </div>
-            </mat-tab>
-        </mat-tab-group>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Studenti
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        modifica studenti
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Cerca studente</mat-label>
+                            <input matInput type="search" [(ngModel)]="searchValue" placeholder="Nome... Cognome..." value="">
+                        </mat-form-field>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="col-md-12" *ngIf="searchValue">
+                            <mat-expansion-panel *ngFor="let test of teachers">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Nome cognome
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        Classe
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <p>CIAO</p>
+                            </mat-expansion-panel>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </div>
     </div>
 </div>
