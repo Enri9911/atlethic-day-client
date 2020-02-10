@@ -14,31 +14,37 @@ button {
     height: 40px;
 }
 
+.container{
+    height: auto;
+    min-height: calc(100% - 64px);
+}
+
 .background {
     height: auto;
-    min-height: calc(100% - 56px);
+    min-height: calc(100% - 64px);
     background-color: #73e8ff;
-    background-position: center;
+    background-position: left bottom;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../../resources/fullLogo.png');
 }
 
 #prof {
-    background-image: url('/src/resources/prof.png');
+    background-image: url('../../resources/prof.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #record {
-    background-image: url('/src/resources/podio.png');
+    margin: auto;
+    background-image: url('../../resources/podio.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #news {
-    background-image: url('./images/news.png');
+    background-image: url('../../resources/news.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
