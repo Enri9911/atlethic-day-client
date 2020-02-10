@@ -23,6 +23,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
 import { PrivateAreaComponent } from './private-area/private-area.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { RecordProvider } from 'src/providers/record-provider';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     RacesProvider,
     TeachersProvider,
     StudentsProvider,
+    RecordProvider,
     HttpClient,
     HttpClientModule
   ],
